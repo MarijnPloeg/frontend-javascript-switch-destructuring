@@ -9,23 +9,40 @@
 // errorCode = 0 geeft "Geen watertoevoer"
 // errorCode = 4 geeft "Geen druk"
 
+let errorCode = 1;
+
+switch (errorCode){
+  case 0:
+    console.log('Geen watertoevoer');
+    break;
+  case 1:
+    console.log('Temperatuur te laag!');
+    break;
+  case 2:
+    console.log('Koffiebonen op!');
+    break;
+  case 3:
+    console.log('Afvalbak vol');
+    break;
+  case 4:
+    console.log('Geen druk');
+    break;
+}
 
 // Opdracht 2: schrijf de volgende functie met if-statements om naar een functie met een switch statement.
 
 function monitorHeartrate(color) {
-  if (color === "green") {
-    return "Hartslag stabiel"
-  }
+  switch (color) {
+    case "green":
+      return "Hartslag stabiel"
+    case "yellow":
+      return "Hartslag verhoogd"
+    case "red":
+    case "orange":
+      return "Kritieke hartslag, actie vereist!"
 
-  if (color === "yellow") {
-    return "Hartslag verhoogd"
+    default: return "Status hartslag onbekend";
   }
-
-  if (color === "red" || color === "orange") {
-    return "Kritieke hartslag, actie vereist!"
-  }
-
-  return "Status hartslag onbekend";
 }
 
 const heartrateState = monitorHeartrate("red");
@@ -41,5 +58,22 @@ console.log(heartrateState); // geeft "Kritieke hartslag, actie vereist!"
 // calculate(5, 7, 'subtract') geeft -2
 // calculate(25, 5, 'divide') geeft 5
 
+function calculate(a, b, operator) {
+  if (Number.isInteger(a) && Number.isInteger(b)) {
+    switch (operator) {
+      case 'add':
+        return a + b;
+      case 'substract':
+        return a - b;
+      case 'multiply':
+        return a * b;
+      case 'divide':
+        return a / b;
+    }
+  }
+
+}
+
+console.log(calculate(5,7, 'multiply'));
 
 
